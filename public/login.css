@@ -41,6 +41,7 @@ html {
 .form-control:focus,
 .form-select:focus {
   border: 2px solid #D99E32;
+  box-shadow: none;
 }
 
 
