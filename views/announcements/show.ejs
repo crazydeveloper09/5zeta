@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+
+<%- include("../partials/header") %>
+
+<br>
+<div class="container">
+    <div class="row justify-content-center">
+
+        <div class="col-lg-11">
+            <div class="card">
+                <img src="<%= announcement.profile %>" alt="zdjęcie ogłoszenia" class="card-img-top" crossorigin>
+                <div class="card-body">
+                    <div class="card-title title"><%= announcement.title %></div>
+                    <div class="informations">
+                        <span>
+                            <a href="/announcements/category/<%= announcement.category.link %>"><i class="fas fa-tag"></i> <strong><%= announcement.category.title %></strong></a>
+                            
+                        </span>
+                        <span>
+                            <a href="/announcements/type/<%= announcement.type.link %>">
+                                <i class="fas fa-signal"></i> Typ: <strong><%= announcement.type.title %></strong>
+                            </a>
+                            
+                        </span>
+                        <span>
+                            <i class="fas fa-money-bill-wave"></i> Cena: <strong><%= announcement.price %>zł</strong>
+                        </span>
+                    </div>
+                    
+                    
+                    <p class="description">
+                        <%- announcement.description %>
+                    </p>
+                    
+                    <% if(announcement.pictures.length !== 0){ %>
+
+                        <h4 class="author-row">Galeria</h4>
+                        <div class="row">
+                            <% announcement.pictures.forEach((picture) => { %>
+                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                    <img src="<%= picture.source %>" alt="galeria ogłoszenia" class="img-thumbnail">
+                                </div>
+                            <% }) %>
+                        </div>
+                        
+                    <% } %>
+                    <div id="fb-root"></div>
+                    <script async>(function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v3.0";
+                    fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));</script>
+
+                    <!-- Your share button code -->
+                    <div class="fb-share-button" 
+                    data-href="http://localhost:3000/announcements/<%= announcement.link %>?announcement_id=<%= announcement._id %>" 
+                    data-layout="button_count" data-size="large">
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <h1 class="card-title footer-title">Autor</h1>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                            <h4 class="author-row">Informacje</h4>
+                            <p class="description">
+                                <a href="/user/<%= announcement.author.username %>/info">
+                                    <%= base64.decode(announcement.author.name) %>
+                                </a>
+                                <br>
+                                <span class="author-city">
+                                    <%= base64.decode(announcement.author.location) %>
+                                </span>
+                            </p>
+                            
+                            <div id="map" style="height: 250px; width: 100%">
+
+                            </div>
+                            <div id="lat" class="d-none">
+                                <%= announcement.author.lat %>
+                            </div>
+                            <div id="lng" class="d-none">
+                                <%= announcement.author.lng %>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12" id="contact">
+                            <h4 class="author-row">Kontakt</h4>
+                            <% if(error.length > 0){ %>
+                                <div class="alert alert-danger" role="alert">
+                                    <%= error %>
+                                </div>
+                            <% } %>
+                            <% if(success.length > 0){ %>
+                                <div class="alert alert-success" role="alert">
+                                    <%= success %>
+                                </div>
+                            <% } %>
+                            <form action="/user/<%= announcement.author._id %>/contact" method="post">
+                                <input required type="text" name="name" placeholder="Imię i nazwisko" class="form-control">
+                                <br>
+                                <input required type="email" name="email" placeholder="Email" class="form-control">
+                                <br>
+                                <input required type="text" name="topic" placeholder="Temat" class="form-control">
+                                <br>
+                                <textarea required name="text" placeholder="Tekst wiadomości" class="form-control"></textarea>
+                                <br>
+                                <input type="submit" value="Wyślij email" class="btn button-small btn-success">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    $("#announcementsLaptop").addClass("active");
+    $("#announcementsMobile").css("border-bottom", "3px solid white")
+</script>
+<script>
+    function initMap() {
+        if(`<%= base64.decode(announcement.author.role) %>` === "admin" || `<%= base64.decode(announcement.author.role) %>` === "Oosoba fizyczna"){
+            var lat = parseFloat(document.getElementById("lat").innerText);
+            var lng = parseFloat(document.getElementById("lng").innerText);
+            var center = { lat: lat, lng: lng };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 10,
+                center: center,
+                scrollwheel: false
+            });
+            var contentString = `
+            <strong><%= base64.decode(announcement.author.name) %><br />
+            <%= base64.decode(announcement.author.city) %></strong>
+            `
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+            var marker = new google.maps.Marker({
+                position: center,
+                map: map
+            });
+            marker.addListener('click', function () {
+                infowindow.open(map, marker);
+            });
+        } else {
+            var lat = parseFloat(document.getElementById("lat").innerText);
+            var lng = parseFloat(document.getElementById("lng").innerText);
+            var center = { lat: lat, lng: lng };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: center,
+                scrollwheel: false
+            });
+            var contentString = `
+            <strong><%= base64.decode(announcement.author.name) %><br />
+                <%= base64.decode(announcement.author.street) %> <%= base64.decode(announcement.author.city) %></strong>
+            `
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+            var marker = new google.maps.Marker({
+                position: center,
+                map: map
+            });
+            marker.addListener('click', function () {
+                infowindow.open(map, marker);
+            });
+        }
+        
+    }
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKvmIASZjDfZNXZZn2fa4pGvR6T3cQTcA&callback=initMap"></script>
+<%- include("../partials/footer") %>

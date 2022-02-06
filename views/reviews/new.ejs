@@ -1,0 +1,109 @@
+<%- include("../partials/headera") %>
+<div class="col-lg-6 col-md-12" id="form">
+	<div class="row justify-content-center">
+		<div class="col-lg-8 col-md-12" style="margin-top: 10%">
+			<div id="form1">
+				<a href="/user/<%= user.username %>/info" id="back">
+                    <i class="fas fa-arrow-left"></i>
+                    Wróć do profilu użytkownika <%= user.username %>
+					
+				</a>
+				<h1 class="login">
+                   Dodaj opinię o użytkowniku <%= user.username %>
+                </h1>
+				<% if(error.length > 0){ %>
+					<div class="alert alert-danger" role="alert">
+						<%= error %>
+					</div>
+				<% } %>
+ 
+                    <form action="/user/<%= user.username %>/reviews" method="post">
+                        <p class="username">Ocena</p>
+                        <div id="ratingDiv">
+                            <% for(let i=0;i<=4;i++){ %>
+                                <div class="star d-inline" id="<%= i %>"><i class="fas fa-star stars"></i></div>
+                            <% } %>
+                        </div>
+                       
+                       
+                        <br>
+                        <input type="text" id="stars" value="" name="stars" hidden>
+                       
+                        <div class="form-floating mb-3">
+                            <textarea name="text" id="description" class="form-control" placeholder="Wpisz opinię"></textarea>
+                            <label for="description" class="username">
+                                Wpisz opinię
+                                
+                            </label>
+                            
+                        </div> 
+                        <% if(!currentUser){ %>
+                           
+                            <div class="form-floating mb-3">
+                                <input type="text" name="name" id="name" placeholder="Wpisz swoje imię" class="form-control">
+                                <label for="name" class="username">
+                                    Wpisz swoje imię
+                                    
+                                </label>
+                                
+                            </div> 
+                        <% } %>
+                       
+                        <input type="submit" value="Dodaj opinię" class="btn btn-warning button btn-golden">
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+  </div>
+  <script>
+      $(".star").on('click', function(){
+        
+        document.getElementById("stars").value = this.id;
+        for(let i=0; i<= 4;i++){
+            document.getElementById(i).querySelector('.fa-star').style.color = "";
+        }
+        for(let i=0; i<= this.id;i++){
+            document.getElementById(i).querySelector('.fa-star').style.color = "goldenrod";
+        }
+        
+      });
+
+      $(".star").on('mouseover', function(){
+        
+        document.getElementById("stars").value = this.id;
+        for(let i=0; i<= 4;i++){
+            document.getElementById(i).querySelector('.fa-star').style.color = "";
+        }
+        for(let i=0; i<= this.id;i++){
+            document.getElementById(i).querySelector('.fa-star').style.color = "goldenrod";
+        }
+        
+      });
+
+      $(".star").on('mouseout', function(){
+        
+        document.getElementById("stars").value = this.id;
+        for(let i=0; i<= 4;i++){
+            document.getElementById(i).querySelector('.fa-star').style.color = "";
+        }
+        for(let i=0; i<= this.id;i++){
+            document.getElementById(i).querySelector('.fa-star').style.color = "goldenrod";
+        }
+        
+      });
+
+      
+  </script>
+  <script>
+    
+
+    $(".form-control").on('click', function(){
+        $(".form-control").css({             
+            "box-shadow": "none"
+        });
+    });
+               
+    </script>
+</body>
+</html>

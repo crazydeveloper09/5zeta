@@ -1,0 +1,163 @@
+body,
+html {
+  background-color: #8C4303;
+  font-family: 'Rubik', sans-serif;
+}
+
+.container-full {
+  width: 100vw;
+}
+
+#info {
+  background: #8C4303;
+  height: 100vh;
+}
+
+
+
+#info .logo {
+  
+  text-transform: uppercase;
+  font-family: 'Bangers', cursive;
+  font-weight: 400;
+  font-size: 75px;
+  color: white;
+}
+
+#info .description {
+  
+  font-size: 25px;
+  color: white;
+}
+
+#form {
+  background: #f2f2f2;
+}
+
+.form-control {
+  outline: none;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border: 2px solid #D99E32;
+}
+
+
+#basic-addon1 {
+  color: lightseagreen;
+  background: #fff;
+}
+.stars {
+  color: #F2D785;
+  font-size: 24px;
+}
+#back {
+  
+  color: #D99E32;
+  font-size: 18px;
+}
+#form1 div.description a {
+  
+  color: #D1CDC7;
+  font-size: 28px;
+}
+#form .login {
+  
+  font-size: 45px;
+  font-weight: 700;
+  color: #8C4303;
+}
+
+ #form .username {
+  
+  font-size: 18px;
+  font-weight: 700;
+  color: #D99E32;
+}
+
+ #form .button {
+  width: 100%;
+  margin-bottom: 15px;
+  
+  font-weight: 700;
+  
+}
+
+ 
+
+ #form1 .form-check-label a {
+  font-size: 15px;
+}
+
+@media (max-width: 992px) {
+   #info {
+    display: none;
+  }
+   #form1 {
+    padding: 4%;
+  }
+   body,  html {
+    background: #F2F4F5;
+  }
+}
+
+ .btn-golden {
+  background: #8C4303;
+  border: 1px solid  #8C4303;
+  color: #F2D785;
+}
+
+.btn-golden:hover {
+  background: #F2D785;
+  border: 1px solid  #F2D785;
+  color: #8C4303;
+}
+
+ #description_r {
+  color: #c9c7c7;
+  font-size: 18px;
+  
+}
+
+ .description {
+  
+  font-size: 20px;
+  margin-top: 10px;
+ 
+}
+
+ .title {
+  font-size: 35px;
+  color: lightseagreen;
+  font-weight: 700;
+  
+}
+
+ .title_r {
+  font-size: 45px;
+  color: goldenrod;
+  font-weight: 700;
+  
+}
+
+.info {
+  
+  font-size: 18px;
+  color: white;
+}
+
+.btn-green {
+  background: #D99E32;
+  border: 1px solid  #D99E32;
+  color: #8C4303;
+}
+
+
+
+.btn-green:hover {
+  background: #D9AE30;
+  border: 1px solid  #D9AE30;
+  color: #BF751B;
+}
+/*# sourceMappingURL=login.css.map */

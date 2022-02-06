@@ -1,0 +1,331 @@
+body,
+html {
+    background: white;
+    font-family: 'Rubik', sans-serif;
+}
+
+.bg-gradient {
+    background: #8C4303;
+}
+
+#mainNav .nav-link {
+    
+    text-transform: uppercase;
+    color: #F2D785;
+}
+#header {
+    background: #F2F2F2;
+    margin-bottom: 30px;
+}
+
+#mainNav .nav-link:hover {
+    color: #D99E32;
+    border-bottom: 3px solid #D99E32;
+   
+}
+
+#mainNav .nav-link.active {
+    color: #D99E32;
+    border-bottom: 3px solid #D99E32;
+}
+
+
+#websiteName {
+    color: #8C4303;
+    text-transform: uppercase;
+    font-size: 50px;
+    
+    font-weight: 700;
+}
+
+#websiteInfo {
+    color: #8C4303;
+    font-size: 30px;
+    
+    
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#usernameMessage,
+#emailMessage {
+    
+    font-size: 19px;
+}
+
+.subpage-title {
+    
+    color: #8C4303;
+    font-weight: 700;
+}
+.card-title {
+    
+    
+    color: #8C4303;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+
+
+input[type=search] {
+    border-color: #8C4303;
+    color: #8C4303;
+}
+
+
+
+input[type=search]::placeholder {
+    color: #8C4303;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+.input-group {
+    padding: 12px;
+}
+
+input[type=radio] {
+    opacity:0;
+        position:absolute;
+
+}
+.radio {
+    font-size: 19px;
+    
+    color: #212529;
+}
+.radioButton {
+    margin-right: 10px;
+    width:19px;
+    height:19px;
+    border-radius: 50%;
+    border: 2px solid #212529;
+    float: left;
+   
+}
+
+
+input:checked + .radioButton {
+    background: #212529;
+    box-shadow: inset 0 0 0 3px #212529;
+}
+.btn-outline-mine {
+    background: #8C4303;
+    border-color: #8C4303;
+    margin-bottom: 30px;
+    color: #F2D785;
+}
+.btn-outline-mine:hover {
+    background: #F2D785;
+    color: #8C4303;
+}
+.description {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.informations span {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.informations span i {
+     margin-right: 5px;
+     color: #D99E32;
+}
+a {
+    color: #212529;
+}
+.text-green {
+    color: #D99E32;
+    
+    margin-top: 10px;
+}
+
+.button-small {
+    background-color: #8C4303;
+    border-color: #8C4303;
+    color: #F2D785;
+    
+    
+}
+
+.button-small:hover {
+    color: #8C4303;
+    background: #F2D785;
+    border-color: #F2D785;
+}
+
+.button-golden {
+    background-color: #D99E32;
+    border-color: #D99E32;
+    color: #8C4303;
+}
+
+.button-golden:hover {
+    background-color: #BF751B;
+    border-color: #BF751B;
+    color: #F2D785;
+}
+
+.author-city {
+    
+    color: lightsteelblue;
+    font-size: 16px;
+}
+
+.price {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.badge-mine {
+    background: #8C4303;
+    border: 1px solid #D99E32;
+    color: #F2D785;
+}
+
+.category {
+    
+    color: #D99E32;
+}
+.category i {
+    margin-right: 4px;
+}
+.badge-golden {
+    background: #BF751B;
+    border-color: #BF751B;
+}
+
+.footer {
+    
+    color: #8C4303;
+    font-size: 14px;
+} 
+
+.footer a {
+    color: #8C4303;
+}
+
+
+.description a:hover {
+    color: #BF751B;
+    text-decoration: none;
+}
+.title {
+    font-size: 40px;
+}
+.footer-title {
+    font-size: 30px;
+}
+.author-row {
+    
+    color: #8C4303;
+    font-weight: 700;
+}
+
+#user_id {
+    opacity: 0;
+}
+.stars {
+    color: #F2D785;
+    font-size: 24px;
+}
+#categories a,
+#types a,
+#announcementsUser a,
+#categoriesModal a,
+#typesModal a,
+#announcementsUserModal a {
+    
+    font-size: 19px;
+    color: #BF751B;
+}
+
+.logo {
+    text-transform: uppercase;
+    font-family: 'Bangers', cursive;
+    font-weight: 400;
+    font-size: 45px;
+    
+}
+
+#logo {
+    height: 70px;
+}
+
+.text-mute {
+    font-size: 12px;
+    
+    color:#8C4303;
+}
+.icon {
+    color:#F2D785;
+}
+
+.modal-title {
+    
+    color: goldenrod;
+    font-weight: 700;
+    font-size: 25px;
+}
+@media (max-width: 992px) {
+    #side {
+        display: none;
+    }
+    #logo {
+        height: 50px;
+    }
+}
+.msg_cotainer{
+   
+    
+   
+    background: none;
+    padding: 10px;
+   
+    width: 100%;
+    
+}
+.author {
+    
+    left: 10%;
+    bottom: -15px;
+    font-size: 22px;
+    bottom: 30%;
+    
+    color: #212529;
+    
+}
+
+.img_cont_msg{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+    top: 5px;
+}
+.date_comment {
+    text-transform: uppercase;
+    
+    color: #212529;
+    
+    left: 0;
+    
+    letter-spacing: 0.1em;
+}
+.description_comment {
+    
+    font-size: 19px;
+    top: 30%;
+    color: #212529;
+}
+.username {
+    
+    font-size: 20px;
+    font-weight: 700;
+    color: #8C4303;
+}
