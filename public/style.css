@@ -276,8 +276,8 @@ a {
     #side {
         display: none;
     }
-    #logo {
-        height: 50px;
+    .logo {
+        font-size: 35px;
     }
 }
 .msg_cotainer{
