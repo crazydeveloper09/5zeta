@@ -30,7 +30,7 @@
                         <input type="text" id="stars" value="" name="stars" hidden>
                        
                         <div class="form-floating mb-3">
-                            <textarea name="text" id="description" class="form-control" placeholder="Wpisz opinię"></textarea>
+                            <textarea name="text" id="description" class="form-control" placeholder="Wpisz opinię" required></textarea>
                             <label for="description" class="username">
                                 Wpisz opinię
                                 
@@ -40,7 +40,7 @@
                         <% if(!currentUser){ %>
                            
                             <div class="form-floating mb-3">
-                                <input type="text" name="name" id="name" placeholder="Wpisz swoje imię" class="form-control">
+                                <input type="text" name="name" id="name" placeholder="Wpisz swoje imię" class="form-control" required>
                                 <label for="name" class="username">
                                     Wpisz swoje imię
                                     
@@ -93,17 +93,13 @@
         
       });
 
-      
-  </script>
-  <script>
-    
+     
+    document.getElementById("form").addEventListener("submit", () => {
+        document.getElementById("send").setAttribute("disabled", "disabled");
+        document.getElementById("send").value = "Dodawanie...";
+    })
 
-    $(".form-control").on('click', function(){
-        $(".form-control").css({             
-            "box-shadow": "none"
-        });
-    });
-               
-    </script>
+  </script>
+  
 </body>
 </html>
