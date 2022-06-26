@@ -55,7 +55,7 @@ router.post("/forgot", function(req, res, next){
             });
         },
         function(token, done){
-            let unhashedEmail = `${Base64.decode(req.body.email)}`;
+            let unhashedEmail = `${Base64.encode(req.body.email)}`;
             User.findOne({ email: unhashedEmail }, function(err, user){
                 if(!user){
                     req.flash('error', 'Nie znaleźliśmy konta z takim emailem. Spróbuj ponownie');
